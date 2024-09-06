@@ -26,13 +26,35 @@ function App() {
 
   return (
     <>
-      {todos.map(function(todo){
+      {/* {todos.map(function(todo){
         return <Todo key={todo.id} ele={todo}></Todo>
-      })}
+      })} */}
+      <TodoWithId id={2}/>
     </>
   )
 }
 
+
+function TodoWithId(props){
+   const [todo,setTodo] = useState({})
+
+   async function fetchSingleTodo(){
+    const res = await fetch('https://dummyjson.com/todos/2')
+    const data = await res.json()
+    console.log(data)
+    setTodo(data)
+   }
+
+   useEffect(function(){
+      fetchSingleTodo()
+   },[])
+
+   return(
+    <div>
+      <h3>{todo.todo}</h3>
+    </div>
+   )
+}
 
 function Todo(props){
   return (
