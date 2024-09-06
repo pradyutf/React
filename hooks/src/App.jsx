@@ -4,6 +4,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+
+//todo using fetch
+
 function App() {
   const [count, setCount] = useState(0) 
   const [todos, setTodos] = useState([
@@ -48,7 +51,7 @@ function TodoWithId(props){
    useEffect(function(){
 
      // fetchSingleTodo()
-     
+
      fetch('https://dummyjson.com/todos/' + props.id)
      .then(res => res.json())
      .then(data => setTodo(data))
