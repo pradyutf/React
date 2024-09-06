@@ -29,7 +29,7 @@ function App() {
       {/* {todos.map(function(todo){
         return <Todo key={todo.id} ele={todo}></Todo>
       })} */}
-      <TodoWithId id={2}/>
+      <TodoWithId id={5}/>
     </>
   )
 }
@@ -39,14 +39,19 @@ function TodoWithId(props){
    const [todo,setTodo] = useState({})
 
    async function fetchSingleTodo(){
-    const res = await fetch('https://dummyjson.com/todos/2')
+    const res = await fetch('https://dummyjson.com/todos/' + props.id)
     const data = await res.json()
     console.log(data)
     setTodo(data)
    }
 
    useEffect(function(){
-      fetchSingleTodo()
+
+     // fetchSingleTodo()
+     
+     fetch('https://dummyjson.com/todos/' + props.id)
+     .then(res => res.json())
+     .then(data => setTodo(data))
    },[])
 
    return(
