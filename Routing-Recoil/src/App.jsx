@@ -7,8 +7,7 @@ import Landing from './components/Landing'
 import NextPage from './components/NextPage'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
 
