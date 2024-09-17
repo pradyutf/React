@@ -5,7 +5,6 @@ import './App.css'
 import { CountContext } from './context';
 
 function App() {
-
   const [count, setCount] = useState(0);
 
   return (
@@ -27,7 +26,7 @@ function Count(props) {
 }
 
 function CountRenderer() {
-  const count = useContext(CountContext)
+  const count = useContext(CountContext);
   return <div>
    <b>
     {count}
@@ -37,7 +36,7 @@ function CountRenderer() {
 
 
 function Buttons(props) {
- 
+  const count = useContext(CountContext);
   console.log("buttons re-rendererd");
 
   return <div>
